@@ -1,25 +1,22 @@
 <script>
-
+	import { onMount } from 'svelte';
 	import Category from './Category.svelte';
 
 	export let name;
 
 	const now = new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit', second:'2-digit'});
 
-	const categories = [
-		{"name": "GitHub",
-		 "links": [
-			 {"name": "codetojoy repos", "url": "https://github.com/codetojoy?tab=repositories"},
-			 {"name": "codetojoy gists", "url": "https://github.com/codetojoy?tab=repositories&q=gists&type=&language="},
-			 {"name": "peidevs", "url": "https://www.github.com/peidevs"},
-		]},
-		{"name": "GitHub 2",
-		 "links": [
-			 {"name": "2 codetojoy repos", "url": "https://github.com/codetojoy?tab=repositories"},
-			 {"name": "2 codetojoy gists", "url": "https://github.com/codetojoy?tab=repositories&q=gists&type=&language="},
-			 {"name": "2 peidevs", "url": "https://www.github.com/peidevs"},
-		]},
-	];
+    let categories = [];
+
+	onMount(async() => {
+		var linksUrl = './links.json';
+        fetch(linksUrl)
+			.then(res => res.json())
+			.then(data => {
+			categories = data
+		});
+		console.log(`TRACER hello from oncreate v2`);
+	});
 </script>
 
 <main>
