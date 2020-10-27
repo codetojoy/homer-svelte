@@ -16,8 +16,6 @@
     "svelte": "^3.0.0"
   },
   "dependencies": {
-    "jquery": "^3.5.1",
-    "jqueryui": "^1.11.1",
     "sirv-cli": "^1.0.0"
   }
 }

@@ -2,6 +2,8 @@
 	import { onMount } from 'svelte';
 	import Category from './Category.svelte';
 
+	import { parseTextToJSON } from './util/parse';
+
 	export let name;
 
 	const now = new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit', second:'2-digit'});
@@ -9,13 +11,13 @@
     let categories = [];
 
 	onMount(async() => {
-		var linksUrl = './links.json';
+		var linksUrl = './links.txt';
         fetch(linksUrl)
-			.then(res => res.json())
-			.then(data => {
-			categories = data
+			.then(res => res.text())
+			.then(text => {
+			categories = parseTextToJSON(text)
 		});
-		console.log(`TRACER hello from oncreate v2`);
+		console.log(`TRACER onMount OK`);
 	});
 </script>
 
