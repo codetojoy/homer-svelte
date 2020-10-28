@@ -3,6 +3,7 @@ GitHub
 codetojoy repos, https://github.com/codetojoy?tab=repositories
 codetojoy gist search, https://github.com/codetojoy?tab=repositories&q=gists&type=&language=
 peidevs, https://www.github.com/peidevs
+my-test, https://cbc.ca
 
 YouTube
 fretjam target notes, http://www.fretjam.com/soloing-over-blues.html
