@@ -18,9 +18,21 @@ async function buildCategories(url) {
   return categories;
 }
 
-// TODO:
 function getFromLocalStorage(key) {
-  return [];
+  let links = [];
+  const text = localStorage.getItem(key);
+  if (text && text !== "{}") {
+    links = JSON.parse(text);
+  }
+  return links;
+}
+
+function persist(key, links) {
+  localStorage.setItem(key, JSON.stringify(links));
+}
+
+function clearLocalStorage(key) {
+  localStorage.removeItem(key);
 }
 
 function merge(fileCategories, localStorageLinks) {
@@ -37,18 +49,24 @@ export default (function () {
   (async function () {
     fileCategories = await buildCategories(LINKS_TXT_URL);
     localStorageLinks = getFromLocalStorage(STORAGE_KEY);
-    const fullJSON = merge(fileCategories, localStorageLinks);
-    update((entries) => fullJSON);
+    updateFull();
   })();
 
+  function updateFull() {
+    const fullJSON = merge(fileCategories, localStorageLinks);
+    update((entries) => fullJSON);
+  }
+
   function addLink(detail) {
-    // TODO
-    console.log(`TRACER addLink: ${detail.name} ${detail.url}`);
+    localStorageLinks.push(detail);
+    persist(STORAGE_KEY, localStorageLinks);
+    updateFull();
   }
 
   function clearTemp() {
-    // TODO
-    console.log(`TRACER hello from clearTemp`);
+    clearLocalStorage(STORAGE_KEY);
+    localStorageLinks = [];
+    updateFull();
   }
 
   return { subscribe, addLink, clearTemp };

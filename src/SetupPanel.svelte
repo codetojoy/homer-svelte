@@ -15,11 +15,11 @@
 </script>
 
 <div>
-	<label>Name:</label>
-	<input bind:value={name} />
+	<label for="name">Name:</label>
+	<input name="name" bind:value={name} />
 	<br/>
-	<label>URL:</label>
-	<input bind:value={url}  />
+	<label for="url">URL:</label>
+	<input name="url" bind:value={url}  />
 	<br/>
 	<button on:click={addLinkClicked}>Add</button>
 	<br/>
