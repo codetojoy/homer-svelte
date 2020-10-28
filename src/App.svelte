@@ -10,8 +10,10 @@
 
 <div>
     <section class="controls">
-		<ControlPanel>
-		</ControlPanel>
+		<ControlPanel
+			on:addLink={(event) => categories.addLink(event.detail)}
+			on:clearTemp={() => categories.clearTemp()}
+		/>
 	</section>
 	<section class="primary">
 		<h2>{name} ({now})</h2>

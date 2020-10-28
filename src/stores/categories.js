@@ -24,8 +24,8 @@ function getFromLocalStorage(key) {
 }
 
 function merge(fileCategories, localStorageLinks) {
-  const tmpCategory = { name: TEMP, links: localStorageLinks };
-  const result = [...fileCategories, tmpCategory];
+  const tempCategory = { name: TEMP, links: localStorageLinks };
+  const result = [...fileCategories, tempCategory];
   return result;
 }
 
@@ -41,12 +41,14 @@ export default (function () {
     update((entries) => fullJSON);
   })();
 
-  function addLink() {
+  function addLink(detail) {
     // TODO
+    console.log(`TRACER addLink: ${detail.name} ${detail.url}`);
   }
 
   function clearTemp() {
     // TODO
+    console.log(`TRACER hello from clearTemp`);
   }
 
   return { subscribe, addLink, clearTemp };
