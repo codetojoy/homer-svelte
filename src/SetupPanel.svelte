@@ -3,8 +3,8 @@
 
 	const dispatch = createEventDispatcher();	
 
-	export let name;
-	export let url;
+	let name;
+	let url;
 
 	function addLinkClicked() {
 		dispatch("addLink", {name, url});
