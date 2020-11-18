@@ -7,6 +7,7 @@ x - CSS animation to approximate accordion?
 
 - Jest tests won't work due to use of `fetch` ... see [here](https://stackoverflow.com/questions/49618484/jest-typeerror-fetch-is-not-a-function)
     - crazy catch-22 involving `fetch` from the store, where either test.sh or run.sh won't work
+    - it is also unhappy with localStorage ??? it's brutal 
 - consider a way to close all sections (button on the side?) 
 - temp folder
     - drag n drop one link to the trash icon

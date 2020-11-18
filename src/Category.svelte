@@ -8,12 +8,12 @@
 
 	const options = {duration: 800, easing: linear};
 	// TODO: make `showMode` an exported prop 
-	const showMode = true;
+	const showMode = false;
 	let show = false;
 </script>
 
 <section>
-	<h3 on:mouseenter={() => show = true }>{category.name}</h3>
+	<h3 id={category.name} on:mouseenter={() => show = true }>{category.name}</h3>
 	{#if (! showMode) || (showMode && show)}
 		<div class="panel">
 			{#each category.links as link}

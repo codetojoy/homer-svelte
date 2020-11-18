@@ -7,3 +7,5 @@ set -e
 
 # in this dir 
 npm install
+
+npm install -D cypress

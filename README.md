@@ -6,6 +6,8 @@
 
 ## Usage
 
-* `npm install`
-* `npm run dev`
+* setup: `./setup.sh`
+* run: `./test.sh`
 * browse to http://localhost:5000 
+* test: `./test.sh`
+    - for Cypress tests, requires that server is running
